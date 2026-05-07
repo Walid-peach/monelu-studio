@@ -1,5 +1,13 @@
 # Production Notes — Phase 2 Launch Video
 
+## Published
+
+**LinkedIn:** https://www.linkedin.com/posts/walid-elkhoukh_monelu-dataengineering-opendata-ugcPost-7458104231019950080-N6Yt
+
+Published May 2026. This is the canonical reference linking this codebase to its live artifact.
+
+---
+
 ## Overview
 
 This video was created in May 2026 to announce MonÉlu's Phase 2: a RAG-powered natural language interface over official French parliamentary data. It was built entirely using Remotion 4 and TypeScript, with Claude Code as the primary coding co-pilot, in a single collaborative session.

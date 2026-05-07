@@ -2,6 +2,8 @@
 
 **The motion design and creative media layer for [MonÉlu](https://monelu.fr) — a civic-tech platform that makes French parliamentary data accessible through dashboards and natural-language search.**
 
+[![Phase 2 Launch — Live on LinkedIn](https://img.shields.io/badge/Phase%202%20Launch-Live%20on%20LinkedIn-0A66C2?logo=linkedin&logoColor=white)](https://www.linkedin.com/posts/walid-elkhoukh_monelu-dataengineering-opendata-ugcPost-7458104231019950080-N6Yt)
+
 ---
 
 ## What is MonÉlu Studio?

@@ -1,0 +1,24 @@
+{
+  "name": "monelu-studio",
+  "version": "2.0.0",
+  "description": "MonÉlu creative studio — motion design, social assets, and product videos",
+  "scripts": {
+    "start": "remotion studio",
+    "dev": "remotion studio",
+    "render": "remotion render MoneluPhase2 out/monelu-phase2.mp4",
+    "render:hq": "remotion render MoneluPhase2 out/monelu-phase2.mp4 --jpeg-quality=95 --concurrency=4",
+    "lint": "tsc --noEmit",
+    "upgrade": "remotion upgrade"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "remotion": "^4.0.0",
+    "@remotion/cli": "^4.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "typescript": "^5.0.0"
+  }
+}

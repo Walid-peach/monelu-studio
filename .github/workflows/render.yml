@@ -1,0 +1,44 @@
+name: Render Video
+
+on:
+  workflow_dispatch:
+    inputs:
+      composition:
+        description: 'Composition ID to render'
+        required: true
+        default: 'MoneluPhase2'
+      quality:
+        description: 'JPEG quality (1-100)'
+        required: false
+        default: '95'
+
+jobs:
+  render:
+    name: Render ${{ github.event.inputs.composition }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Render video
+        run: |
+          npx remotion render ${{ github.event.inputs.composition }} \
+            out/${{ github.event.inputs.composition }}.mp4 \
+            --jpeg-quality=${{ github.event.inputs.quality }} \
+            --concurrency=4
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ github.event.inputs.composition }}
+          path: out/*.mp4
+          retention-days: 7

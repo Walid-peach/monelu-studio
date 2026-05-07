@@ -1,0 +1,16 @@
+/* Global styles for Remotion Studio preview.
+   Remotion renders in a sandboxed browser context — these styles apply only
+   to the Studio UI wrapper, not to the canvas itself. All canvas styles are
+   inline objects in the component files. */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Inter', 'Segoe UI', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

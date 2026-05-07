@@ -1,0 +1,8 @@
+node_modules/
+out/
+dist/
+public/assets/
+*.png
+*.jpg
+*.mp4
+package-lock.json

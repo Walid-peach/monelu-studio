@@ -15,10 +15,10 @@ export const TOTAL_DURATION = Object.values(SCENE_DURATIONS).reduce(
 );
 
 export const SCENE_STARTS = (() => {
-  const d = SCENE_DURATIONS;
   return {
     scene1: 0,
-    // scene2: d.scene1,
-    // scene3: d.scene1 + d.scene2,
+    // Uncomment and add `const d = SCENE_DURATIONS;` above when adding scenes:
+    // scene2: SCENE_DURATIONS.scene1,
+    // scene3: SCENE_DURATIONS.scene1 + SCENE_DURATIONS.scene2,
   };
 })();

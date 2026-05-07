@@ -1,8 +1,8 @@
 import React from "react";
-import { AbsoluteFill, useCurrentFrame, useVideoConfig } from "remotion";
+import { AbsoluteFill, useCurrentFrame } from "remotion";
 import { COLORS } from "../../../config/colors";
 import { FONTS } from "../../../config/typography";
-import { fadeIn, slideIn, springIn } from "../../../utils/animation";
+import { fadeIn, slideIn } from "../../../utils/animation";
 import { SceneContainer } from "../../../components/layout/SceneContainer";
 import { SCENE_DURATIONS } from "../config";
 
@@ -14,7 +14,6 @@ const T = {
 
 export const Scene1: React.FC = () => {
   const frame = useCurrentFrame();
-  const { fps } = useVideoConfig();
 
   const titleOpacity = fadeIn(frame, T.titleIn, T.titleIn + 18);
   const titleY       = slideIn(frame, T.titleIn, T.titleIn + 18, 20);

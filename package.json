@@ -7,8 +7,20 @@
     "dev": "remotion studio",
     "render": "remotion render MoneluPhase2 out/monelu-phase2.mp4",
     "render:hq": "remotion render MoneluPhase2 out/monelu-phase2.mp4 --jpeg-quality=95 --concurrency=4",
-    "lint": "tsc --noEmit",
+    "lint": "tsc --noEmit && eslint src --ext .ts,.tsx",
+    "format": "prettier --write \"src/**/*.{ts,tsx,css}\" \"docs/**/*.md\" \"*.{json,md}\"",
+    "format:check": "prettier --check \"src/**/*.{ts,tsx,css}\" \"docs/**/*.md\" \"*.{json,md}\"",
+    "prepare": "husky",
     "upgrade": "remotion upgrade"
+  },
+  "lint-staged": {
+    "**/*.{ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "**/*.{json,md,css}": [
+      "prettier --write"
+    ]
   },
   "dependencies": {
     "@remotion/cli": "^4.0.0",

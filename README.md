@@ -22,6 +22,7 @@ MonÉlu Studio is a [Remotion](https://remotion.dev) + TypeScript repository for
 ## Why this repository exists
 
 MonÉlu communicates with data-literate, civic-minded audiences. The visual language needs to be:
+
 - **Premium** — cinematic dark navy, glass morphism, spring physics
 - **Trustworthy** — official sources, data-grounded, no hype
 - **Maintainable** — changing copy or timing should take minutes, not days
@@ -135,7 +136,14 @@ Output: `out/monelu-phase2.mp4`
    ```tsx
    import { MyVideo, TOTAL_DURATION as MY_TOTAL } from "./videos/my-video-name";
    // ...
-   <Composition id="MyVideo" component={MyVideo} durationInFrames={MY_TOTAL} fps={VIDEO_FPS} width={VIDEO_WIDTH} height={VIDEO_HEIGHT} />
+   <Composition
+     id="MyVideo"
+     component={MyVideo}
+     durationInFrames={MY_TOTAL}
+     fps={VIDEO_FPS}
+     width={VIDEO_WIDTH}
+     height={VIDEO_HEIGHT}
+   />;
    ```
 
 See `docs/prompts/claude-code-refactor.md` for AI-assisted templates.
@@ -182,13 +190,28 @@ See `docs/visual-language.md` for the full reference. Key principles:
 
 ---
 
-## Type checking
+## Quality checks
+
+Every commit is automatically checked by a pre-commit hook (Husky + lint-staged). Only staged files are processed — the full render is never triggered on commit.
+
+| Command                | What it does                             |
+| ---------------------- | ---------------------------------------- |
+| `npm run lint`         | TypeScript type-check + ESLint on `src/` |
+| `npm run format`       | Prettier write on all TS/TSX/MD/JSON/CSS |
+| `npm run format:check` | Prettier check (CI-safe, no writes)      |
+
+**On every `git commit`**, lint-staged runs on staged files only:
+
+- `*.ts / *.tsx` → `eslint --fix` then `prettier --write`
+- `*.json / *.md / *.css` → `prettier --write`
+
+ESLint is configured in `eslint.config.cjs` (ESLint v9 flat config). Rules are intentionally non-blocking — only `react-hooks/rules-of-hooks` is an error; everything else is a warning that gets auto-fixed or surfaced without stopping the commit.
+
+To run the hook manually without committing:
 
 ```bash
-npm run lint    # TypeScript type check (tsc --noEmit)
+npx lint-staged
 ```
-
-No test suite or ESLint — type safety is enforced by TypeScript strict mode.
 
 ---
 
